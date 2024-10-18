@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <title>Add a New Car</title>
+</head>
+<body>
+    <h1>Add a New Car</h1>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <label for="make">Make:</label><br>
+        {{ form.make(size=20) }}<br>
+        {% for error in form.make.errors %}
+            <span style="color: red;">[{{ error }}]</span><br>
+        {% endfor %}
+        <label for="model">Model:</label><br>
+        {{ form.model(size=20) }}<br>
+        {% for error in form.model.errors %}
+            <span style="color: red;">[{{ error }}]</span><br>
+        {% endfor %}
+        <label for="year">Year:</label><br>
+        {{ form.year(size=20) }}<br>
+        {% for error in form.year.errors %}
+            <span style="color: red;">[{{ error }}]</span><br>
+        {% endfor %}
+        <input type="submit" value="Add">
+    </form>
+    <a href="{{ url_for('index') }}">Back to list</a>
+</body>
+</html>
